@@ -14,11 +14,9 @@ class GpsPointRepository
     end
   end
 
-  def find(timestamp: )
-    epoch = convert_canon_to_epoch(timestamp: timestamp)
-
+  def find(time_epoch: )
     closest_match = points_with_timestamps.each_with_index.inject({}) do |best_match, (point, i)|
-      difference = (point[:timestamp] - epoch).abs
+      difference = (point[:timestamp] - time_epoch).abs
       if best_match[:point].nil?
         { difference: difference, point: point }
       else
@@ -32,8 +30,4 @@ class GpsPointRepository
   private
 
   attr_writer :points_with_timestamps
-
-  def convert_canon_to_epoch(timestamp:)
-    DateTime.strptime(timestamp, '%Y:%m:%d %H:%M:%S').to_time.to_i
-  end
 end
