@@ -5,16 +5,16 @@ require_relative 'lib/geo/locus_kml_reader'
 require_relative 'lib/geo/gps_point_repository'
 
 if ARGV.length < 3
-  puts "usage: ./apply_kml_track.rb <path_to_kml_file> <directory_containing_images> <timezone>"
+  puts "usage: ./apply_kml_track.rb <path_to_kml_file> <directory_containing_images> <gps_track_timezone>"
   exit 1
 end
 
 path_to_kml_file = ARGV[0]
 images_directory  = ARGV[1]
-timezone = ARGV[2]
+gps_track_timezone = ARGV[2]
 
-if timezone != 'PST'
-  puts "Only 'PST' is currently supported as a timezone"
+if gps_track_timezone != 'PST'
+  puts "Only 'PST' is currently supported as a gps_track_timezone"
   exit 1
 end
 
