@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    mini_exiftool (2.8.0)
     mini_portile2 (2.1.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -23,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mini_exiftool
   nokogiri
   rspec
 
