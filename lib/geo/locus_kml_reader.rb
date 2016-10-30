@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'date'
 
 class LocusKmlReader
   attr_reader :xml_doc
@@ -10,6 +11,7 @@ class LocusKmlReader
 
   def start_epoch
     timestamp = xml_doc.at_xpath("//Placemark/name").text
+    puts "GPS Start timestamp: #{timestamp}"
     convert_timestamp_to_epoch(timestamp: timestamp)
   end
 
@@ -25,7 +27,7 @@ class LocusKmlReader
   def points
     lines = xml_doc.at_xpath("//coordinates").text.strip.split("\n")
     lines.map do |line|
-      line.split(",").map(&:strip)[0..1].map(&:to_f)
+      line.split(",").map(&:strip)[0..1].map(&:to_f).reverse
     end
   end
 

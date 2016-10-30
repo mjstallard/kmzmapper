@@ -7,10 +7,14 @@ class GpsPointRepository
     interval = duration_seconds / points.length.to_f
 
     points.each_with_index do |point, i|
-      self.points_with_timestamps.push( {
+      point_with_timestamp = {
         point: point,
         timestamp: (start_epoch  + (i * interval))
-      })
+      }
+
+      puts point_with_timestamp
+
+      self.points_with_timestamps.push(point_with_timestamp)
     end
   end
 

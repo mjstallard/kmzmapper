@@ -18,11 +18,11 @@ RSpec.describe LocusKmlReader do
   end
 
   describe '#points' do
-    it 'returns the lat/long coordinates of the track as pairs' do
+    it 'returns the lat/long coordinates of the track as pairs, in the correct order' do
       expect(subject.points).to eq([
-				[-121.786952,36.811302],
-				[-121.786936,36.811311],
-				[-121.786929,36.811339]
+				[36.811302,-121.786952],
+				[36.811311,-121.786936],
+				[36.811339,-121.786929]
       ]
       )
     end
