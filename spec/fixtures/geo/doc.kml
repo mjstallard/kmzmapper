@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+<atom:author><atom:name>Locus (Android)</atom:name></atom:author>
+	<Style id="track001">
+		<LineStyle>
+			<color>c80000ff</color>
+			<width>9.0</width>
+		</LineStyle>
+	</Style>
+<Placemark>
+	<name><![CDATA[2015-05-26 08:40:11]]></name>
+	<description><![CDATA[4h:16m:28s | 23.4 nmi]]></description>
+	<styleUrl>#track001</styleUrl>
+	<MultiGeometry>
+		<LineString>
+			<coordinates>
+				-121.786952,36.811302,-30.95
+				-121.786936,36.811311,-31.19
+				-121.786929,36.811339,-29.00
+			</coordinates>
+		</LineString>
+	</MultiGeometry>
+</Placemark>
+</Document>
+</kml>
