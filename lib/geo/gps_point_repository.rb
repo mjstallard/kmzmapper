@@ -28,6 +28,10 @@ class GpsPointRepository
     closest_match[:point][:point]
   end
 
+	def timestamps
+		points_with_timestamps.map { |pwt| pwt[:timestamp] }
+	end
+
   private
 
   attr_writer :points_with_timestamps

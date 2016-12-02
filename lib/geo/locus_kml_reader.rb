@@ -11,7 +11,6 @@ class LocusKmlReader
 
   def start_epoch
     timestamp = xml_doc.at_xpath("//Placemark/name").text
-    puts "GPS Start timestamp: #{timestamp}"
     convert_timestamp_to_epoch(timestamp: timestamp)
   end
 

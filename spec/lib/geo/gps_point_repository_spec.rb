@@ -17,6 +17,14 @@ RSpec.describe GpsPointRepository do
       )
     end
 
+    describe "#timestamps" do
+      it "returns all the timestamps from the gpx points" do
+        expected_timestamps = [start_epoch, start_epoch + 10, start_epoch + 20]
+
+        expect(subject.timestamps).to eq(expected_timestamps)
+      end
+    end
+
     describe "#find" do
       it "returns the closest (by recency) recorded lat/long pair" do
         expected_coordinate = [36.811302,-121.786952]
@@ -72,6 +80,14 @@ RSpec.describe GpsPointRepository do
           [-121.786929,36.811339]
         ]
       )
+    end
+
+    describe "#timestamps" do
+      it "returns all the timestamps derived from the duration and interval" do
+        expected_timestamps = [start_epoch, start_epoch + 10, start_epoch + 20]
+
+        expect(subject.timestamps).to eq(expected_timestamps)
+      end
     end
 
     describe "#find" do

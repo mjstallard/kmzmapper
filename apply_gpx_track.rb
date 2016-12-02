@@ -13,7 +13,6 @@ path_to_gpx_file = ARGV[0]
 images_directory  = ARGV[1]
 
 gpx_content = File.open(path_to_gpx_file, "rb").read
-
 gpx_reader = GpxReader.new(gpx: gpx_content)
 
 gps_points_repository = GpsPointRepository.new(gpx_points: gpx_reader.points)
