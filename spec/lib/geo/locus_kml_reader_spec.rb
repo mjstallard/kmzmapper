@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pathname'
 
 require 'geo/locus_kml_reader'
 

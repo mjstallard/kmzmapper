@@ -1,21 +1,18 @@
 class GpsPointRepository
   attr_reader :points_with_timestamps
 
-  def initialize(start_epoch:, duration_seconds:, points:)
+	def initialize(gpx_points: )
+    self.points_with_timestamps = []
+	end
+
+  def initialize(gpx_points: nil, start_epoch: nil, duration_seconds: nil, points: nil)
     self.points_with_timestamps = []
 
-    interval = duration_seconds / points.length.to_f
-
-    points.each_with_index do |point, i|
-      point_with_timestamp = {
-        point: point,
-        timestamp: (start_epoch  + (i * interval))
-      }
-
-      puts point_with_timestamp
-
-      self.points_with_timestamps.push(point_with_timestamp)
-    end
+		if gpx_points
+			initialize_with_gpx_points(gpx_points: gpx_points)
+		else
+			initialize_with_interpolation(start_epoch: start_epoch, duration_seconds: duration_seconds, points: points)
+		end
   end
 
   def find(time_epoch: )
@@ -34,4 +31,27 @@ class GpsPointRepository
   private
 
   attr_writer :points_with_timestamps
+
+
+	def initialize_with_gpx_points(gpx_points: )
+    self.points_with_timestamps = gpx_points.map do |point|
+      {
+        point: [point.lat, point.lng],
+        timestamp: point.timestamp
+      }
+    end
+	end
+
+	def initialize_with_interpolation(start_epoch:, duration_seconds:, points:)
+    interval = duration_seconds / points.length.to_f
+
+    points.each_with_index do |point, i|
+      point_with_timestamp = {
+        point: point,
+        timestamp: (start_epoch  + (i * interval))
+      }
+
+      self.points_with_timestamps.push(point_with_timestamp)
+    end
+	end
 end
