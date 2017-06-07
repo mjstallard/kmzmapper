@@ -21,6 +21,14 @@ $ gem install bundler
 $ bundle
 ```
 
+Note that the `apply_kml_track.rb` script requires a KML file (not a KMZ file in order) to run. It's really easy to convert a KMZ to a KML by running the following command:
+
+```
+$ unzip some-gps-track.kmz
+```
+
+This will typically produce a file called `doc.kml`.
+
 You should then be able to run the script using the following:
 
 ```
