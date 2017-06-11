@@ -6,10 +6,10 @@ echo "Installing homebrew..."
 
 echo "Installing brew dependencies..."
 brew install exiftool
-brew install chruby
+brew install rbenv
 
 echo "Installing ruby..."
-chruby install 2.3.1
+rbenv install 2.3.1
 
 echo "Installing ruby dependencies..."
 gem install bundler
